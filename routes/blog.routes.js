@@ -5,8 +5,6 @@ const { GetBlog, PostBlog, EditBlog, DeleteBlog } =require("../controllers/index
 const upload = require("../multer/upload")
 const router = express.Router();
 
-const { GetBlog} = require('../controllers/blogControllers/sub-controllers/getBlog.controller');
-
 
 router.get('/blog', ()=>{
     console.log('slkdfj')
