@@ -1,7 +1,7 @@
 
 const router = require('express').Router();
 
-const { GetBlog, PostBlog, EditBlog, DeleteBlog } = require('../controllers/blogControllers/index.controller');
+const { GetBlog, PostBlog, EditBlog, DeleteBlog } =require("../controllers/index.controller").blogs;;
 const upload = require("../multer/upload")
 
 router.get('/blog/get', GetBlog);
