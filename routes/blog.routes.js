@@ -1,11 +1,9 @@
 
 const express = require('express')
 
-const { GetBlog, PostBlog, EditBlog, DeleteBlog } = require('../controllers/blogControllers/index.controller');
+const { GetBlog, PostBlog, EditBlog, DeleteBlog } =require("../controllers/index.controller").blogs;;
 const upload = require("../multer/upload")
 const router = express.Router();
-
-const { GetBlog} = require('../controllers/blogControllers/sub-controllers/getBlog.controller');
 
 
 router.get('/blog', ()=>{
