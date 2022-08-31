@@ -1,13 +1,20 @@
+const router = require("express").Router();
 
-const router = require('express').Router();
+const { 
+    GetFeedback,
+    PostFeedback, 
+    EditFeedback , 
+    DeleteFeedback 
+    } =
+  require("../controllers/index.controller").feedbacks;
 
-const { GetFeedback,
-     PostFeedback,
-    } = require('../controllers/index.controller').feedbacks;
+const multer = require("../multer/upload");
+router.get("/feedback", GetFeedback);
 
+router.post("/postFeedback", multer.single("image"), PostFeedback);
 
-router.get('/feedback', GetFeedback);
+router.put("/editFeedback", multer.single("image"), EditFeedback);
 
-router.post('/postFeedback',PostFeedback);
+router.delete("/deleteFeedback",DeleteFeedback);
 
 module.exports = router;

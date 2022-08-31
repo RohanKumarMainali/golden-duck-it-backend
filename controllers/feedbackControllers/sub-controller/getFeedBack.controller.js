@@ -10,7 +10,8 @@ const GetFeedback = async (req, res) => {
     try{
         const feedback = await feedbackModel.find();
         return res.status(StatusCodes.ACCEPTED).send({
-            message: result,
+            success: true,
+            feedbacks: feedback,
         });
     }catch(err){
         return res.status(StatusCodes.INTERNAL_SERVER_ERROR).send({
