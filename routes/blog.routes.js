@@ -1,10 +1,12 @@
 
 const router = require('express').Router();
 
-const { POST_BLOG} = require('../controllers/index.controller').adminControllers;
+const { GET_BLOG} = require('../controllers/blogControllers/index.controller');
 
 
-router.post('/blog', POST_BLOG);
+router.get('/blog', ()=>{
+    console.log('hello')
+});
 
 
 
