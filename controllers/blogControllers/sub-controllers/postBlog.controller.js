@@ -1,4 +1,5 @@
 const BlogModel = require("../../../models/blog/blogModel")
+const { StatusCodes } = require("http-status-codes");
 
 const PostBlog = async (req, res) => {
     try {
@@ -8,13 +9,13 @@ const PostBlog = async (req, res) => {
             image: req.file?.path
         });
         if (!req.body || !req.file.path) {
-            res.status(400).json({ success: false, data: "something went wrong" })
+            res.status(StatusCodes.BAD_REQUEST).json({ success: false, data: "something went wrong" })
         } else {
             await _post.save()
-            res.status(200).json({ success: true, data: _post })
+            res.status(StatusCodes.ACCEPTED).json({ success: true, data: _post })
         }
     } catch (error) {
-        res.status(500).json(error)
+        res.status(StatusCodes.INTERNAL_SERVER_ERROR).json(error)
     }
 }
 module.exports = PostBlog;

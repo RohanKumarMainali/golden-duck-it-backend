@@ -7,12 +7,7 @@ const router = express.Router();
 
 
 
-router.get('/blog', ()=>{
-    console.log('slkdfj')
-});
-
-
-// router.get('/blog/get', GetBlog);
+router.get('/blog', GetBlog);
 router.post('/blog/post', upload.single('image') , PostBlog);
 router.put('/blog/update/:id',upload.single('image'), EditBlog);
 router.delete('/blog/delete/:id', DeleteBlog);
