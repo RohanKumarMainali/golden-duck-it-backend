@@ -1,9 +1,12 @@
 const GetBlog = require("./sub-controllers/getBlog.controller");
-// const PostRoutine = require("./sub-controllers/postRoutine.controller");
-// const UpdateRoutine = require("./sub-controllers/updateRoutine.controller");
-// const DeleteRoutine = require("./sub-controllers/deleteRoutine.controller");
+const PostBlog = require("./sub-controllers/postBlog.controller")
+const EditBlog = require("./sub-controllers/editBlog.controller")
+const DeleteBlog = require("./sub-controllers/deleteBlog.controller")
 
 
 module.exports = {
     GetBlog,
+    PostBlog,
+    EditBlog,
+    DeleteBlog
 }

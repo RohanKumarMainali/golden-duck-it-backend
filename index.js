@@ -2,7 +2,7 @@ require('dotenv').config();
 const cors = require('cors');
 const express = require('express');
 const mongoDB = require('./config/index');
-const routes  = require('./routes/index.routes');
+const  routes  = require('./routes/index.routes');
 mongoDB();
 
 const app = express();
@@ -14,6 +14,7 @@ app.use(express.json());
 
 
 app.use('/api/v4',routes)
+app.use(express.static(__dirname))
 
 
 const PORT =  process.env.PORT ||8000;
