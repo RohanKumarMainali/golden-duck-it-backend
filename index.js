@@ -14,7 +14,7 @@ app.use(express.json());
 
 
 app.use('/api/v4',routes)
-
+app.use(express.static(__dirname))
 
 const PORT =  process.env.PORT ||8000;
 

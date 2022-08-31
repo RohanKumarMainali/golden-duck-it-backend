@@ -10,12 +10,11 @@ const PostBlog = async (req, res) => {
         if (!req.body || !req.file.path) {
             res.status(400).json({ success: false, data: "something went wrong" })
         } else {
-           await _post.save()
+            await _post.save()
             res.status(200).json({ success: true, data: _post })
         }
     } catch (error) {
         res.status(500).json(error)
-        console.log(error)
     }
 }
 module.exports = PostBlog;
