@@ -1,7 +1,7 @@
 
 const router = require('express').Router();
 
-const { GetFeedback,
+const { 
      PostFeedback,
     } = require('../controllers/index.controller').feedbacks;
 
