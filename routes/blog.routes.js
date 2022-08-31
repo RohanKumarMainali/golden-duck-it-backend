@@ -1,11 +1,13 @@
 
-const router = require('express').Router();
+const express = require('express')
 
-const { GET_BLOG} = require('../controllers/blogControllers/index.controller');
+const router = express.Router();
+
+const { GetBlog} = require('../controllers/blogControllers/sub-controllers/getBlog.controller');
 
 
 router.get('/blog', ()=>{
-    console.log('hello')
+    console.log('slkdfj')
 });
 
 
