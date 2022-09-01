@@ -5,7 +5,7 @@ const auth = require("../../middlewares/auth")
 
 var adminAttemptCount = 0, blockEmail;
 
-const LOGIN = (req, res) => {
+const LOGIN = async (req, res) => {
   let { email, password } = req.body;
 
   //uid validation
@@ -20,13 +20,26 @@ const LOGIN = (req, res) => {
     });
   }
 
+  
+
   //database mapping
-  adminModel.find({ email: email, password: password }).then((data) => {
-    if (data.length > 0) {
+
+  try{
+    const data = await adminModel.find({ email: email})
+
+    if (data !==undefined ) {
       //compare encrypt password
-      if (bcrypt.compare(data[0].password, password) === false) {
-        return res.status(StatusCodes.UNAUTHORIZED).send('Password didnt matched !!')
+      console.log("data "+data)
+      
+      const isMatched = await data[0].matchPassword(password);
+
+      if(!isMatched){
+        return res.status(StatusCodes.UNAUTHORIZED).send({
+          success: false,
+          message: "Email or Password didn't matched"
+        })
       }
+
 
       const { accessToken, refreshToken } = auth.GenerateJWT(email);
       return res.status(200).send({
@@ -52,7 +65,13 @@ const LOGIN = (req, res) => {
       }
       return res.status(StatusCodes.UNAUTHORIZED).send('Wrong email or password !!');
     }
-  })
+  }catch(err){
+    return res.status(StatusCodes.INTERNAL_SERVER_ERROR).send({
+      message: err.message
+    })
+  }
+  
+  
 }
 
 module.exports = LOGIN;

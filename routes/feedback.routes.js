@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const auth = require('../middlewares/auth')
 
 const { 
     GetFeedback,
@@ -11,10 +12,10 @@ const {
 const multer = require("../multer/upload");
 router.get("/feedback", GetFeedback);
 
-router.post("/postFeedback", multer.single("image"), PostFeedback);
+router.post("/postFeedback", multer.single("image"), auth.VerifyJWT,PostFeedback);
 
-router.put("/editFeedback", multer.single("image"), EditFeedback);
+router.put("/editFeedback", multer.single("image"),auth.VerifyJWT, EditFeedback);
 
-router.delete("/deleteFeedback",DeleteFeedback);
+router.delete("/deleteFeedback",auth.VerifyJWT,DeleteFeedback);
 
 module.exports = router;

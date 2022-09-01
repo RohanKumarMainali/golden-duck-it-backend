@@ -1,8 +1,8 @@
 const jwt = require('jsonwebtoken');
 // const { ACCESS_TOKEN_KEY, REFRESH_TOKEN_KEY } = require("../configs/index.config"); 
 
-const ACCESS_TOKEN_KEY = lsakdjfnsldfkjsavjs546546f6s
-const REFRESH_TOKEN_KEY =fsadf4654sd6f54sd1f32a1sdf65
+const ACCESS_TOKEN_KEY = "lsakdjfnsldfkjsavjs546546f6s"
+const REFRESH_TOKEN_KEY ="fsadf4654sd6f54sd1f32a1sdf65"
 
 //verify jwt token
 const VerifyJWT = async(req, res, next) => {
