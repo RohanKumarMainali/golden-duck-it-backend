@@ -10,7 +10,7 @@ const DeleteProject = (req, res) => {
   if(projectId === undefined){
     return res.status(StatusCodes.BAD_REQUEST).send({
       message: "projectId is empty !",
-      "projectId": projectId ,
+      projectId: projectId ,
     })
   }
   
