@@ -15,6 +15,7 @@ const PostBlog = async (req, res) => {
             res.status(StatusCodes.ACCEPTED).json({ success: true, data: _post })
         }
     } catch (error) {
+        console.log(error)
         res.status(StatusCodes.INTERNAL_SERVER_ERROR).json(error)
     }
 }

@@ -4,8 +4,8 @@ const { StatusCodes } = require("http-status-codes");
 const PostPortfolio = async (req, res) => {
     try {
         const _postPortfolio = await new PortfolioModel({
-            brand_name: req.body.title,
-            catagory: req.body.description,
+            brand_name: req.body.brand_name,
+            catagory: req.body.catagory,
             image: req.file?.path
         });
         if (!req.body || !req.file.path) {

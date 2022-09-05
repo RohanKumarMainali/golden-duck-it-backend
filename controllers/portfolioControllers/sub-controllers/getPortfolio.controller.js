@@ -9,4 +9,5 @@ const GetBlog = async (req, res) => {
     res.status(StatusCodes.INTERNAL_SERVER_ERROR).json(error)
   }
 }
+
 module.exports = GetBlog;
