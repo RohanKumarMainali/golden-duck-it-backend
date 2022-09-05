@@ -3,13 +3,14 @@ const { StatusCodes } = require("http-status-codes");
 
 const DeleteProject = (req, res) => {
   //get the routine doc id
-  const { projectId } = req.query;
+  const  projectId  = req.body.projectId;
 
   //check if projectId is provided or not
 
   if(projectId === undefined){
     return res.status(StatusCodes.BAD_REQUEST).send({
-      message: "feedBack is empty !"
+      message: "projectId is empty !",
+      "projectId": `${projectId}` ,
     })
   }
   
@@ -23,6 +24,7 @@ const DeleteProject = (req, res) => {
     .catch((err) => {
       return res.status(StatusCodes.BAD_REQUEST).send({
         message: 'Failed to delete routine !!',
+        id: projectId
       })
     })
 }
