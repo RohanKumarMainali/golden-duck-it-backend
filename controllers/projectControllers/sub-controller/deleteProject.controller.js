@@ -3,8 +3,8 @@ const { StatusCodes } = require("http-status-codes");
 
 const DeleteProject = (req, res) => {
   //get the routine doc id
-  const  projectId  = req.body.projectId;
-
+  const  projectId  = req.params.id;
+  console.log(projectId)
   //check if projectId is provided or not
 
   if(projectId === undefined){

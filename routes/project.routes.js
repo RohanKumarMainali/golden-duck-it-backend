@@ -19,6 +19,6 @@ router.post("/postProject", multer.single("image"), auth.VerifyJWT,PostProject);
 
 router.put("/editProject", multer.single("image"),auth.VerifyJWT, EditProject);
 
-router.delete("/deleteProject",auth.VerifyJWT,DeleteProject);
+router.delete("/deleteProject/:id",DeleteProject);
 
 module.exports = router;
