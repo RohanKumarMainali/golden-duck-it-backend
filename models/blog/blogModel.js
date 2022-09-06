@@ -6,6 +6,10 @@ const blogSchema = new mongoose.Schema({
     title : String,
     description: String,
     image: String,
+    date:{
+        type: Date,
+        default: Date.now()
+    }
 });
 
 module.exports = new mongoose.model("blog", blogSchema);
