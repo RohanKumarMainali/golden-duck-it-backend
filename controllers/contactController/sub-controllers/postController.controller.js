@@ -2,7 +2,7 @@ const ContactModel = require('../../../models/contact/contact');
 const { StatusCodes } = require("http-status-codes");
 const { mail } = require('../../../utils/mail')
 
-const PostContact = async (req, res) => {
+const PostContacts = async (req, res) => {
     try {
         const contact = await new ContactModel(req.body);
         mail().sendMail({
@@ -22,4 +22,4 @@ const PostContact = async (req, res) => {
     }
 }
 
-module.exports = PostContact;
+module.exports = PostContacts;

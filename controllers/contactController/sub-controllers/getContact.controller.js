@@ -1,7 +1,7 @@
 const ContactModel = require('../../../models/contact/contact');
 const { StatusCodes } = require("http-status-codes");
 
-const GetContact = async (req, res) => {
+const GetContacts = async (req, res) => {
     try {
         const contact = await ContactModel.find();
         return res.status(StatusCodes.ACCEPTED).send({
@@ -15,4 +15,4 @@ const GetContact = async (req, res) => {
     }
 }
 
-module.exports = GetContact;
+module.exports = GetContacts;

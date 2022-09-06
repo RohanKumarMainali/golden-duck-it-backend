@@ -1,11 +1,9 @@
-const router = require("express").Router();
+const express = require('express')
+const { GetContacts, PostContacts } = require('../controllers/contactController/index.controller');
+const router = express.Router();
 const auth = require('../middlewares/auth')
 
-const { 
-    GetContact,
-    PostContact,
-    } =
-  require("../controllers/index.controller").contacts
+router.get('/contactGet',auth.VerifyJWT, GetContacts);
+router.post('/contactPost' , PostContacts);
 
-  router.get("/contactGet", auth.VerifyJWT, GetContact);
-  router.post("/contactPost", PostContact);
+module.exports = router;
