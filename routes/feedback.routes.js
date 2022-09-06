@@ -16,6 +16,6 @@ router.post("/postFeedback", multer.single("image"), auth.VerifyJWT,PostFeedback
 
 router.put("/editFeedback", multer.single("image"),auth.VerifyJWT, EditFeedback);
 
-router.delete("/deleteFeedback",auth.VerifyJWT,DeleteFeedback);
+router.delete("/deleteFeedback/:id",auth.VerifyJWT,DeleteFeedback);
 
 module.exports = router;

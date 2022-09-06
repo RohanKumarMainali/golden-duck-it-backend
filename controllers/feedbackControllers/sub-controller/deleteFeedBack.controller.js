@@ -3,7 +3,8 @@ const { StatusCodes } = require("http-status-codes");
 
 const DeleteFeedback = (req, res) => {
   //get the routine doc id
-  const { feedBackId } = req.query;
+  const feedBackId = req.params.id;
+  console.log(feedBackId)
 
   //check if feedBackId is provided or not
 
