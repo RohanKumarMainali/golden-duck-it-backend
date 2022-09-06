@@ -10,7 +10,7 @@ const auth = require('../middlewares/auth')
 
 router.get('/blog', GetBlog);
 router.post('/blog/post', upload.single('image') ,auth.VerifyJWT, PostBlog);
-router.put('/blogUpdate',upload.single('image'), EditBlog);
+router.put('/blogUpdate', auth.VerifyJWT,upload.single('image'), EditBlog);
 router.delete('/blog/delete/:id',auth.VerifyJWT, DeleteBlog);
 
 module.exports = router;
