@@ -6,7 +6,7 @@ const auth = require('../middlewares/auth')
 router.get('/portfolio', GetPortfolio);
 router.get('/portfolio/:id', GetSinglePortfolio);
 router.post('/portfolio/post', auth.VerifyJWT, upload.single("image") ,PostPortfolio);
-router.put('/portfolio/update/:id', auth.VerifyJWT, upload.single("image"), EditPortfolio);
+router.put('/portfolioUpdate',  upload.single("image"), EditPortfolio);
 router.delete('/portfolio/delete/:id',auth.VerifyJWT,DeletePortfolio);
 
 module.exports = router;

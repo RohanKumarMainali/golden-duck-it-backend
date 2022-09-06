@@ -3,7 +3,7 @@ const { StatusCodes } = require("http-status-codes");
 
 const EditBlog = async (req, res) => {
     try {
-        const _post = await BlogModel.findOneAndUpdate({
+        const _post = await BlogModel.findOneAndUpdate({_id:req.body.id},{
             title: req?.body?.title,
             description: req?.body?.description,
             image: req?.file?.path
