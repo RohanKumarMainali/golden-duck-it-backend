@@ -18,7 +18,7 @@ const contactSchema = new mongoose.Schema({
             "Please enter a valid email address",
         ],
     },
-    services: {
+    service: {
         type: String
     },
     found: {
