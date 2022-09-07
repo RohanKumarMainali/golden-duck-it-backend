@@ -3,7 +3,7 @@ const { GetContacts, PostContacts } = require('../controllers/contactController/
 const router = express.Router();
 const auth = require('../middlewares/auth')
 
-router.get('/contactGet',auth.VerifyJWT, GetContacts);
+router.get('/contactGet', GetContacts);
 router.post('/contactPost' , PostContacts);
 
 module.exports = router;

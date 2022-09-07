@@ -4,6 +4,7 @@ const { StatusCodes } = require("http-status-codes");
 const GetContacts = async (req, res) => {
     try {
         const contact = await ContactModel.find();
+        console.log(contact)
         return res.status(StatusCodes.ACCEPTED).send({
             success: true,
             contacts: contact,

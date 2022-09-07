@@ -5,13 +5,6 @@ const PostFeedback = async (req, res) => {
   //destructuring incoming data
   const { title, description, image, author } = req.body;
 
-  //check if all attributes are recieved or not ?
-  //   if (Object.keys(req.body).length < 4) {
-  //     return res
-  //       .status(StatusCodes.PARTIAL_CONTENT)
-  //       .send("Some fields are missing. Please provide all the fields !!");
-  //   }
-
   try {
     const data = new routineModel({
       title: title,
