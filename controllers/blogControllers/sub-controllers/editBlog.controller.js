@@ -6,6 +6,7 @@ const EditBlog = async (req, res) => {
         const _post = await BlogModel.findOneAndUpdate({_id:req.body.id},{
             title: req?.body?.title,
             description: req?.body?.description,
+            catagory: req?.body?.catagory,
             image: req?.file?.path
         });
         res.status(StatusCodes.ACCEPTED).json({success:true, data:_post})

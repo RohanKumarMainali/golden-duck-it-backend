@@ -6,6 +6,7 @@ const PostBlog = async (req, res) => {
         const _post = await new BlogModel({
             title: req.body.title,
             description: req.body.description,
+            catagory: req.body.catagory,
             image: req.file?.path
         });
         if (!req.body || !req.file.path) {
