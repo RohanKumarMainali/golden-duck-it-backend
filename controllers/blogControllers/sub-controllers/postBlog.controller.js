@@ -23,6 +23,7 @@ const PostBlog = async (req, res) => {
                 public_id: result.public_id,
                 url : result.secure_url
             },
+            catagory: req.body.catagory,
         });
     
             await _post.save()
