@@ -6,7 +6,7 @@ const EditFeedback = (req, res) => {
     //get the routine doc id
    
 
-    const { feedBackId,title, description, image, author } = req.body;
+    const { feedBackId,title, description, author } = req?.body;
   
       // checking if feedBackId is in req.body
       if (feedBackId === undefined)
@@ -19,7 +19,7 @@ const EditFeedback = (req, res) => {
       {
         title:title,
         description: description,
-        image: image,
+        image: req?.file?.path,
         author: author, 
         createdOn: new Date().toLocaleDateString(),
       },
