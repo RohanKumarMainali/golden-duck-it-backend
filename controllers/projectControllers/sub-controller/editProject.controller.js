@@ -6,7 +6,7 @@ const EditProject = (req, res) => {
     //get the routine doc id
    
 
-    const { projectId,title, category, image, link} = req.body;
+    const { projectId,title, category, image, link} = req?.body;
   
       // checking if projectId is in req.body
       if (projectId === undefined)
@@ -19,7 +19,7 @@ const EditProject = (req, res) => {
       {
         title:title,
         category: category,
-        image: image,
+        image: req?.file?.path,
         link: link, 
         createdOn: new Date().toLocaleDateString(),
       },
