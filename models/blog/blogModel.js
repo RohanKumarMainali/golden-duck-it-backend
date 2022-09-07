@@ -5,7 +5,16 @@ const mongoose = require("mongoose");
 const blogSchema = new mongoose.Schema({
     title : String,
     description: String,
-    image: String,
+    image: {
+        public_id :{
+            type : String,
+            requried: true,
+        },
+        url: {
+            type: String,
+            required: true,
+        }
+    },
     date:{
         type: Date,
         default: Date.now()
