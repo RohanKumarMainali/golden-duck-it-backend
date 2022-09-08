@@ -12,8 +12,14 @@ const portfolioSchema = new mongoose.Schema({
         required:true
     },
     image: {
-        type: String, 
-        required:true
+        public_id :{
+            type : String,
+            requried: true,
+        },
+        url: {
+            type: String,
+            required: true,
+        }
     },
     date:{
         type: Date,

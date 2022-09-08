@@ -5,7 +5,16 @@ const mongoose = require("mongoose");
 const projectSchema = new mongoose.Schema({
     title : String,
     category: String,
-    image: String,
+    image: {
+        public_id :{
+            type : String,
+            requried: true,
+        },
+        url: {
+            type: String,
+            required: true,
+        }
+    },
     link: String,
 });
 
