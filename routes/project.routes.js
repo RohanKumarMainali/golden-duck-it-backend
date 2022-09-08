@@ -1,9 +1,5 @@
-
-
 const router = require("express").Router();
 const auth = require('../middlewares/auth')
-
-
 const { 
     GetProject,
     PostProject, 
@@ -12,13 +8,12 @@ const {
     } =
   require("../controllers/index.controller").projects;
 
-const multer = require("../multer/upload");
 router.get("/getProject", GetProject);
 
-router.post("/postProject", multer.single("image"), auth.VerifyJWT,PostProject);
+router.post("/postProject", auth.VerifyJWT,PostProject);
 
-router.put("/editProject", multer.single("image"),auth.VerifyJWT, EditProject);
+router.put("/editProject", auth.VerifyJWT, EditProject);
 
-router.delete("/deleteProject/:id",auth.VerifyJWT, DeleteProject);
+router.delete("/deleteProject/:id", auth.VerifyJWT, DeleteProject);
 
 module.exports = router;

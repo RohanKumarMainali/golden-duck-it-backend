@@ -3,7 +3,7 @@ const { GetContacts, PostContacts , DeleteContacts} = require('../controllers/co
 const router = express.Router();
 const auth = require('../middlewares/auth')
 
-router.get('/contactGet', GetContacts);
+router.get('/contactGet',auth.VerifyJWT, GetContacts);
 router.post('/contactPost' , PostContacts);
 router.delete("/contactDelete/:id",DeleteContacts)
 

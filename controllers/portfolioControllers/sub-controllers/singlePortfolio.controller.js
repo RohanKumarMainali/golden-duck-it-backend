@@ -6,6 +6,7 @@ const GetSinglePortfolio = async (req, res) => {
         res.status(StatusCodes.ACCEPTED).json({ success: true, data: _getSinglePorfolio })
     } catch (error) {
         res.status(StatusCodes.INTERNAL_SERVER_ERROR).json(error)
+        coonsole.log(error)
     }
 }
 module.exports = GetSinglePortfolio;
