@@ -11,6 +11,7 @@ const DB_URL = "mongodb+srv://rohan:admin@cluster0.8scrjcj.mongodb.net/test";
 
 
 
+
 const mongoDB = async()=>{
     try{
         await mongoose.connect(DB_URL);

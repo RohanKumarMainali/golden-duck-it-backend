@@ -2,6 +2,7 @@ require('dotenv').config();
 const cors = require('cors');
 const express = require('express');
 const mongoDB = require('./config/index');
+const fileupload = require('express-fileupload'); 
 const  routes  = require('./routes/index.routes');
 mongoDB();
 
@@ -13,6 +14,7 @@ app.use(cors());
 app.use(express.json());
 
 
+app.use(fileupload({useTempFiles: true}))
 app.use('/api/v4',routes)
 app.use(express.static(__dirname))
 
