@@ -8,7 +8,7 @@ const REFRESH_TOKEN_KEY ="fsadf4654sd6f54sd1f32a1sdf65"
 const VerifyJWT = async(req, res, next) => {
   //token validation
   if (req.header('authorization') === undefined || req.header('authorization').length <= 9) {
-    return res.status(404).send({
+    return res.status(401).send({
       message:"Token is empty !!"
     });
   } 
@@ -22,7 +22,7 @@ const VerifyJWT = async(req, res, next) => {
     const res = await jwt.verify(accessToken, ACCESS_TOKEN_KEY)
     next()
   } catch (err) {
-    return res.status(404).send({
+    return res.status(401).send({
       message:"Session timeout."
     })
   }
@@ -58,7 +58,7 @@ const regenerateAccessToken = (req, res, next) => {
     //shift the process
     next()
   } catch (error) {
-    res.status(404).send({
+    res.status(401).send({
       message:"Refresh token cannot verified."
     })
   }
