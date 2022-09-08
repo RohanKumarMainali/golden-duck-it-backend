@@ -6,7 +6,7 @@ const PostProject = (req, res) => {
   //destructuring incoming data
   const { title, category, image, link } = req.body;
   const file = req.files.image
-  const result = cloudinary.uploader.upload(file.tempFilePath, { folder: 'blog', }, function (err, docs) {
+  const result = cloudinary.uploader.upload(file.tempFilePath, { folder: 'project', }, function (err, docs) {
     if (err) {
       console.log(err)
     } else {

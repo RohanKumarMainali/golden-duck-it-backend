@@ -5,20 +5,20 @@ const cloudinary = require('../../../config/cloudinary');
 const EditPortfolio = async (req, res) => {
   const file = req?.files?.image
   try {
-    const result = cloudinary.uploader.upload(file.tempFilePath, { folder: 'blog', }, function (err, docs) {
+    const result = await cloudinary.uploader.upload(file.tempFilePath, { folder: 'portfolio', }, function (err, docs) {
       if (err) {
-        console.log(err)
+          console.log(err)
       } else {
-        console.log(docs)
+          console.log(docs)
       }
-    })
+  })
     const _editPortfolio = await PortfolioModel.findByIdAndUpdate({_id:req.body.id},{
       brand_name: req?.body?.brand_name,
       catagory: req?.body?.catagory,
-      image:{
+      image: {
         public_id: result.public_id,
         url: result.secure_url
-      }
+    }
     });
     res.status(StatusCodes.ACCEPTED).json({ sucess: true, data: _editPortfolio })
     console.log(_editPortfolio)

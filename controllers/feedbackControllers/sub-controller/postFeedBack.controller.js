@@ -7,7 +7,7 @@ const PostFeedback = async (req, res) => {
   const { title, description, image, author } = req.body;
   const file = req.files.image
   try {
-    const result = await cloudinary.uploader.upload(file.tempFilePath, { folder: 'blog', }, function (err, docs) {
+    const result = await cloudinary.uploader.upload(file.tempFilePath, { folder: 'feedback', }, function (err, docs) {
       if (err) {
         console.log(err)
       } else {
