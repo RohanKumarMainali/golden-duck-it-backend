@@ -21,7 +21,7 @@ const PostPortfolio = async (req, res) => {
             }
         });
         await _postPortfolio.save()
-        res.status(StatusCodes.ACCEPTED).json({ success: true, data: _postPortfolio })
+        res.status(StatusCodes.OK).json({ success: true, data: _postPortfolio })
 
     } catch (error) {
         res.status(StatusCodes.INTERNAL_SERVER_ERROR).json(error)
